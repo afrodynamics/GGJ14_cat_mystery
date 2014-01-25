@@ -23,25 +23,28 @@ public class BasicMovementScript : MonoBehaviour {
 	void FixedUpdate() {
 
 		// Rotate camera
-		if ( Input.GetAxis( "Horizontal" ) != 0 ) {
-			// Rotate around the z-axis to turn camera view
-			rigidbody.transform.Rotate( new Vector3( 0, moveSpeed * Input.GetAxis( "Horizontal" ), 0 )); // lies
+		if (grounded) {
+			if (Input.GetAxis ("Horizontal") != 0) {
+				// Rotate around the z-axis to turn camera view
+				rigidbody.transform.Rotate (new Vector3 (0, moveSpeed * Input.GetAxis ("Horizontal"), 0)); // lies
 
-		}
+			}
 
-		if ( Input.GetAxis( "Vertical" ) > 0 ) {
-			rigidbody.velocity = new Vector3( moveSpeed * rigidbody.transform.forward.x, 
+			if (Input.GetAxis ("Vertical") > 0) {
+				rigidbody.velocity = new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
 			                                  moveSpeed * rigidbody.transform.forward.y,
-			                                  moveSpeed * rigidbody.transform.forward.z );
-		}
-		else if ( Input.GetAxis( "Vertical" ) < 0 ) {
-			rigidbody.velocity = new Vector3( -moveSpeed * rigidbody.transform.forward.x, 
+			                                  moveSpeed * rigidbody.transform.forward.z);
+			} 
+			else if (Input.GetAxis ("Vertical") < 0) {
+				rigidbody.velocity = new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
 			                                  -moveSpeed * rigidbody.transform.forward.y,
-			                                  -moveSpeed * rigidbody.transform.forward.z );
+			                                  -moveSpeed * rigidbody.transform.forward.z);
+			}
+				
 		}
 
 		if (Input.GetKey (KeyCode.Space) && grounded) {
-			Jump ();
+			Jump();
 		}
 
 		if (rigidbody.velocity.y < 0) {
@@ -61,7 +64,12 @@ public class BasicMovementScript : MonoBehaviour {
 
 	void Jump(){
 		grounded = false;
-		rigidbody.velocity = new Vector3 (0, jumpForce * rigidbody.transform.up.y, 0);
+
+		rigidbody.velocity = new Vector3 (jumpForce * rigidbody.transform.up.x, 
+		                                  jumpForce * rigidbody.transform.up.y, 
+		                                  jumpForce * rigidbody.transform.up.z);
+
+
 
 
 	
