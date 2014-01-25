@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BasicMovementScript : MonoBehaviour {
 
+	public float moveSpeed = 3.0f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -11,5 +13,31 @@ public class BasicMovementScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	   
+	}
+
+	// FixedUpdate called once per physics engine update
+	void FixedUpdate() {
+
+		// Rotate camera
+		if ( Input.GetAxis( "Horizontal" ) != 0 ) {
+			// Rotate around the z-axis to turn camera view
+			rigidbody.transform.Rotate( new Vector3( 0, moveSpeed * Input.GetAxis( "Horizontal" ), 0 )); // lies
+
+		}
+
+		if ( Input.GetAxis( "Vertical" ) > 0 ) {
+			rigidbody.velocity = new Vector3( moveSpeed * rigidbody.transform.forward.x, 
+			                                  moveSpeed * rigidbody.transform.forward.y,
+			                                  moveSpeed * rigidbody.transform.forward.z );
+		}
+		else if ( Input.GetAxis( "Vertical" ) < 0 ) {
+			rigidbody.velocity = new Vector3( -moveSpeed * rigidbody.transform.forward.x, 
+			                                  -moveSpeed * rigidbody.transform.forward.y,
+			                                  -moveSpeed * rigidbody.transform.forward.z );
+		}
+
+		// Not a problem now, but may be soon. Prevents us from infinitely accelerating past moveSpeed
+		rigidbody.velocity = Vector3.ClampMagnitude( rigidbody.velocity, moveSpeed );
+
 	}
 }
