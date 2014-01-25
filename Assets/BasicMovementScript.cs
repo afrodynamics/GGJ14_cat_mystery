@@ -4,6 +4,10 @@ using System.Collections;
 public class BasicMovementScript : MonoBehaviour {
 
 	public float moveSpeed = 3.0f;
+	public float jumpForce = 1;
+
+	private bool grounded = true;
+	private bool falling = false;
 
 	// Use this for initialization
 	void Start () {
@@ -36,8 +40,32 @@ public class BasicMovementScript : MonoBehaviour {
 			                                  -moveSpeed * rigidbody.transform.forward.z );
 		}
 
+		if (Input.GetKey (KeyCode.Space) && grounded) {
+			Jump ();
+		}
+
+		if (rigidbody.velocity.y < 0) {
+			falling = true;
+		}
+
+		if(falling == true && rigidbody.velocity.y == 0)
+		{
+			grounded = true;
+			falling = false;
+		}
+
 		// Not a problem now, but may be soon. Prevents us from infinitely accelerating past moveSpeed
 		rigidbody.velocity = Vector3.ClampMagnitude( rigidbody.velocity, moveSpeed );
+
+	}
+
+	void Jump(){
+		grounded = false;
+		rigidbody.velocity = new Vector3 (0, jumpForce * rigidbody.transform.up.y, 0);
+
+
+	
+
 
 	}
 }
