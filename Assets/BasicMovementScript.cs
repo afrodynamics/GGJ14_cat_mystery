@@ -10,6 +10,8 @@ public class BasicMovementScript : MonoBehaviour {
 	public float jumpForce = 14;
 	public float maxSpeed;
 
+	private float leapMoveSpeed; // The multiplier for moving with the leap controls.
+
 	private bool grounded = true;
 	private bool falling = false;
 	private float time;
@@ -50,7 +52,10 @@ public class BasicMovementScript : MonoBehaviour {
 		performingJumpMotion = false;
 		jumpUpDistance = 0.0f;
 		jumpDownDistance = 0.0f;
-		jumpMotionDistance = 14f; // This value will probably need tweaking.
+
+		leapMoveSpeed = 2f;
+		// This value determines how far you have to move your hand to make a jump motion.
+		jumpMotionDistance = 1.0f; // This value will probably need tweaking.
 
 		pauseInput = false;
 		turnAround = false;
@@ -88,14 +93,14 @@ public class BasicMovementScript : MonoBehaviour {
 				//if (hand.PalmPosition.ToUnityScaled().z < 0) {
 
 					if ( movement > 0.0f ) {
-						rigidbody.velocity = new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
-						                                  moveSpeed * rigidbody.transform.forward.y,
-						                                  moveSpeed * rigidbody.transform.forward.z);
+						rigidbody.velocity = new Vector3 (leapMoveSpeed * movement * rigidbody.transform.forward.x, 
+						                                  leapMoveSpeed * movement * rigidbody.transform.forward.y,
+						                                  leapMoveSpeed * movement * rigidbody.transform.forward.z);
 					} 
 					else if (movement < -2.0f) {
-						rigidbody.velocity = new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
-						                                  -moveSpeed * rigidbody.transform.forward.y,
-						                                  -moveSpeed * rigidbody.transform.forward.z);
+						rigidbody.velocity = new Vector3 (movement * leapMoveSpeed * rigidbody.transform.forward.x, 
+						                                  movement * leapMoveSpeed * rigidbody.transform.forward.y,
+						                                  movement * leapMoveSpeed * rigidbody.transform.forward.z);
 					}
 				//}
 					/*

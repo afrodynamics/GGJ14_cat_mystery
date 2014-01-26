@@ -66,13 +66,13 @@ public class PawBehavior : MonoBehaviour {
 			if (localy < -0.3f) {
 				localy = -0.3f;
 			}
-			if (localz > 1.2f) {
-				localz = 1.2f;
+			if (localz > 0.6f) {
+				localz = 0.6f;
 			}
 
-			//if (localx < 0.5f) {
-			//	localx = 0.5f;
-			//}
+			if (localx < 0.5f) {
+				localx = 0.5f;
+			}
 
 			gameObject.transform.localPosition = new Vector3 (localx, localy, localz);
 
