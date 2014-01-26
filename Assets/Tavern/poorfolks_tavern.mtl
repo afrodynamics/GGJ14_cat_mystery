@@ -1,0 +1,170 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 10.01.2014 00:26:37
+
+newmtl Material__341
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_logs.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_logs.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_logs_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_logs_NRM.tga
+
+newmtl Material__611
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_door.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_door.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_door_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_door_NRM.tga
+
+newmtl Material__612
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_roof.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_roof.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_roof_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_roof_NRM.tga
+
+newmtl Material__616
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_window.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_window.tga
+
+newmtl Material__863_Slot__6
+	Ns 43.2193
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.2000 0.2000 0.2000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.2000 0.2000 0.2000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl Material__606
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bars.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bars.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bars_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bars_NRM.tga
+
+newmtl Material__615
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_stucco.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_stucco.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_stucco_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_stucco_NRM.tga
+
+newmtl Material__609
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_chimney.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_chimney.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_chimney_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_chimney_NRM.tga
+
+newmtl Material__607
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_black.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_black.tga
+
+newmtl Material__605
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_attic_planks.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_attic_planks.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_attic_planks_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_attic_planks_NRM.tga
+
+newmtl Material__608
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bricks.tga
+	map_Kd G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bricks.tga
+	map_bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bricks_NRM.tga
+	bump G:\3d\Modular castle\Poorfolks\TAVERN\poorfolks_tavern.fbm\poorfolks_bricks_NRM.tga

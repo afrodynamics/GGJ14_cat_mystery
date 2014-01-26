@@ -1,0 +1,126 @@
+fileFormatVersion: 2
+guid: 23a911f4f7b265d48aadb00cb4eed4f0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Bed
+    100004: Bridge_Walkway
+    100006: Chair
+    100008: Chair001
+    100010: Chair002
+    100012: Chair003
+    100014: Cylinder122
+    100016: Cylinder123
+    100018: Hut
+    100020: Plane001
+    100022: Table
+    100024: Torus_Knot045
+    100026: Torus_Knot046
+    400000: //RootNode
+    400002: Bed
+    400004: Bridge_Walkway
+    400006: Chair
+    400008: Chair001
+    400010: Chair002
+    400012: Chair003
+    400014: Cylinder122
+    400016: Cylinder123
+    400018: Hut
+    400020: Plane001
+    400022: Table
+    400024: Torus_Knot045
+    400026: Torus_Knot046
+    2300000: Bed
+    2300002: Bridge_Walkway
+    2300004: Chair
+    2300006: Chair001
+    2300008: Chair002
+    2300010: Chair003
+    2300012: Cylinder122
+    2300014: Cylinder123
+    2300016: Hut
+    2300018: Plane001
+    2300020: Table
+    2300022: Torus_Knot045
+    2300024: Torus_Knot046
+    3300000: Bed
+    3300002: Bridge_Walkway
+    3300004: Chair
+    3300006: Chair001
+    3300008: Chair002
+    3300010: Chair003
+    3300012: Cylinder122
+    3300014: Cylinder123
+    3300016: Hut
+    3300018: Plane001
+    3300020: Table
+    3300022: Torus_Knot045
+    3300024: Torus_Knot046
+    4300000: Bed
+    4300002: Bridge_Walkway
+    4300004: Chair
+    4300006: Chair001
+    4300008: Chair002
+    4300010: Chair003
+    4300012: Cylinder122
+    4300014: Cylinder123
+    4300016: Hut
+    4300018: Plane001
+    4300020: Table
+    4300022: Torus_Knot045
+    4300024: Torus_Knot046
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

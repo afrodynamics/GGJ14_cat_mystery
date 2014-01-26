@@ -1,0 +1,33 @@
+Thank you for viewing and downloading this Radio model.
+Please rate if you like and any comments are appreciated.
+
+Some of the following may be helpful...
+
+created using 3ds max 2009.
+rendered with Mental ray 3.6
+Mental ray pro materials are used so you will need this for the metal and glass materials (otherwise replace them with your own).
+
+Polys: 8,068
+Verts: 10,108
+
+Speaker grill material uses a duffuse and opacity map, both are tiled U=50 V=40. I also lowered the RGB offset output to -0.5 on the diffuse.
+knob top map is also tiled to U=0.9 V=0.9
+
+The aerial on this model does telescope out also, however must be in the 90degrees standing position before doing so. then just move the aerial parts
+aerial, aerial2, aerial3 upwards accordingly.
+
+All knobs, buttons, switches and handles can be rotated.
+
+Control panel.jpeg
+Tuner Display.jpeg
+Grill + Opacity.jpeg all created using adobe photoshop.
+
+
+If you use this model please list credit to Mark Fowler(hypnagogia).
+This model is not for redistribution.
+
+Any questions or requests feel free to email me or leave a comment.
+
+hypnagogia@hotmail.com 
+
+Thank you.

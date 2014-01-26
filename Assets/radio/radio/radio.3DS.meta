@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: a1acd3c6d7db34b4cb42eb2413b53748
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Aerial
+    100002: Aerial bas
+    100004: Aerial2
+    100006: Aerial3
+    100008: Aerial4
+    100010: AFC
+    100012: BAND
+    100014: Bass
+    100016: Box06
+    100018: handel
+    100020: Line01
+    100022: Loudness
+    100024: Power butt
+    100026: //RootNode
+    100028: speaker gr
+    100030: Treble
+    100032: Tuner Pin
+    100034: Tuning kno
+    400000: Aerial
+    400002: Aerial bas
+    400004: Aerial2
+    400006: Aerial3
+    400008: Aerial4
+    400010: AFC
+    400012: BAND
+    400014: Bass
+    400016: Box06
+    400018: handel
+    400020: Line01
+    400022: Loudness
+    400024: Power butt
+    400026: //RootNode
+    400028: speaker gr
+    400030: Treble
+    400032: Tuner Pin
+    400034: Tuning kno
+    2300000: Aerial
+    2300002: Aerial bas
+    2300004: Aerial2
+    2300006: Aerial3
+    2300008: Aerial4
+    2300010: AFC
+    2300012: BAND
+    2300014: Bass
+    2300016: Box06
+    2300018: handel
+    2300020: Line01
+    2300022: Loudness
+    2300024: Power butt
+    2300026: //RootNode
+    2300028: speaker gr
+    2300030: Treble
+    2300032: Tuning kno
+    3300000: Aerial
+    3300002: Aerial bas
+    3300004: Aerial2
+    3300006: Aerial3
+    3300008: Aerial4
+    3300010: AFC
+    3300012: BAND
+    3300014: Bass
+    3300016: Box06
+    3300018: handel
+    3300020: Line01
+    3300022: Loudness
+    3300024: Power butt
+    3300026: //RootNode
+    3300028: speaker gr
+    3300030: Treble
+    3300032: Tuning kno
+    4300000: Radio Main
+    4300002: Box06
+    4300004: Line01
+    4300006: Loudness
+    4300008: Bass
+    4300010: Treble
+    4300012: AFC
+    4300014: BAND
+    4300016: Tuning kno
+    4300018: Power butt
+    4300020: speaker gr
+    4300022: Aerial bas
+    4300024: Aerial
+    4300026: Aerial2
+    4300028: Aerial3
+    4300030: Aerial4
+    4300032: handel
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .100000001
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
