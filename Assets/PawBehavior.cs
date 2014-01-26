@@ -26,27 +26,18 @@ public class PawBehavior : MonoBehaviour {
 
 	void LeapControls()
 	{
-		Hand leftHand, rightHand;
-		rightHand = null;
+		Hand hand = null;
 		Frame frame = m_leapController.Frame();
 		bool noHand = false;
-		if (frame.Hands.Count == 2) {
-			leftHand = frame.Hands [0];
-			rightHand = frame.Hands [1];
-
-			if (leftHand.PalmPosition.x > rightHand.PalmPosition.x) {
-				leftHand = rightHand;
-				rightHand = frame.Hands [0];
-			}
+		// Only allow motion controls with one hand.
+		if (frame.Hands.Count == 1) {
+			hand = frame.Hands [0];
 		} 
-		else if (frame.Hands.Count == 1) {
-			rightHand = frame.Hands[0];
-		}
 		else {
 			noHand = true;
 		}
 
-		if (!noHand && rightHand.PalmPosition.z <= -1)
+		if (!noHand && hand.Fingers.Count >= 2)
 		{
 			showPaw = true;
 		}

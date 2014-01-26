@@ -65,24 +65,18 @@ public class BasicMovementScript : MonoBehaviour {
 	{
 		Frame frame = m_leapController.Frame();
 
-		// We only do stuff if both hands are in view.
-		// No three handed players allowed.
-		if (frame.Hands.Count == 2) {
-			Hand leftHand = frame.Hands [0];
-			Hand rightHand = frame.Hands [1];
-			
-			if (leftHand.PalmPosition.x > rightHand.PalmPosition.x) {
-					leftHand = rightHand;
-					rightHand = frame.Hands [0];
-			}
+		// Only allow one hand to control movement
+		if (frame.Hands.Count == 1) {
+			Hand hand = frame.Hands[0];
+
 
 
 			// Basic movement
-			if (grounded) {
+			if ( grounded && hand.Fingers.Count < 2 ) {
 				// We need the average value of the two hands' positions.
-				rotation = ( leftHand.PalmPosition.ToUnityScaled().x + rightHand.PalmPosition.ToUnityScaled().x ) / 2.0f;
-				movement = ( leftHand.PalmPosition.ToUnityScaled().z + rightHand.PalmPosition.ToUnityScaled().z ) / 2.0f;
-				float currentPalmY = ( leftHand.PalmPosition.ToUnityScaled().y + rightHand.PalmPosition.ToUnityScaled().y ) / 2.0f;
+				rotation = ( hand.PalmPosition.ToUnityScaled().x );
+				movement = ( hand.PalmPosition.ToUnityScaled().z );
+				float currentPalmY = ( hand.PalmPosition.ToUnityScaled().y );
 
 				if ( Mathf.Abs(rotation) > 0.25f ) {
 					// Rotate around the z-axis to turn camera view
@@ -91,19 +85,19 @@ public class BasicMovementScript : MonoBehaviour {
 					
 				}
 
-				if (rightHand.PalmPosition.ToUnityScaled().z < 0) {
+				//if (hand.PalmPosition.ToUnityScaled().z < 0) {
 
-					if (movement > -2.0  && movement < 0.0) {
+					if ( movement > 0.0f ) {
 						rigidbody.velocity = new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
 						                                  moveSpeed * rigidbody.transform.forward.y,
 						                                  moveSpeed * rigidbody.transform.forward.z);
 					} 
-					else if (movement < -3.0) {
+					else if (movement < -2.0f) {
 						rigidbody.velocity = new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
 						                                  -moveSpeed * rigidbody.transform.forward.y,
 						                                  -moveSpeed * rigidbody.transform.forward.z);
 					}
-				}
+				//}
 					/*
 				if (axes == RotationAxes.MouseXAndY)
 				{
