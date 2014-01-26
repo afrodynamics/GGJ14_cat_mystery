@@ -11,6 +11,8 @@ public class PawBehavior : MonoBehaviour {
 	public float localx, localy, localz;
 	public float handx, handy, handz;
 
+
+
 	// Use this for initialization
 	void Start () {
 		m_leapController = new Controller();
@@ -62,6 +64,13 @@ public class PawBehavior : MonoBehaviour {
 
 	}
 
+	void OnCollisionEnter(Collision collision)	{
+		//if (collision.gameObject.name == "Ball") {
+			collision.gameObject.rigidbody.velocity += new Vector3(collision.gameObject.rigidbody.velocity.x * 50,
+			                                                       collision.gameObject.rigidbody.velocity.y * 50,
+			                                                       collision.gameObject.rigidbody.velocity.z * 50);
+		//}
+	}
 
 	void FixedUpdate()
 	{
