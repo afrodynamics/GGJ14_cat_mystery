@@ -1,10 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PawBehavior.cs">
     <Files>
       <File FileName="Assets\BasicMovementScript.cs" Line="66" Column="1" />
-      <File FileName="Assets\PaddleControl.cs" Line="21" Column="7" />
-      <File FileName="Assets\PawBehavior.cs" Line="89" Column="4" />
+      <File FileName="Assets\PaddleControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\PawBehavior.cs" Line="58" Column="91" />
+      <File FileName="Assets\BallBehavior.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

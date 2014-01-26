@@ -72,7 +72,7 @@ public class BasicMovementScript : MonoBehaviour {
 
 
 			// Basic movement
-			if ( grounded && hand.Fingers.Count >= 2 ) {
+			if ( grounded && hand.Fingers.Count > 2 ) {
 				// We need the average value of the two hands' positions.
 				rotation = ( hand.PalmPosition.ToUnityScaled().x );
 				movement = ( hand.PalmPosition.ToUnityScaled().z );

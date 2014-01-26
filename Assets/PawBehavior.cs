@@ -11,6 +11,9 @@ public class PawBehavior : MonoBehaviour {
 	public float localx, localy, localz;
 	public float handx, handy, handz;
 
+	private const float xOffset = 0.5f;
+	private const float yOffset = -3.0f;
+	private const float zOffset = 1.0f;
 
 
 	// Use this for initialization
@@ -51,9 +54,21 @@ public class PawBehavior : MonoBehaviour {
 		if (!noHand && hand.Fingers.Count <= 2 && hand.Fingers.Count > 0)
 		{
 			showPaw = true;
-			gameObject.transform.localPosition = new Vector3 (hand.PalmPosition.ToUnityScaled().x + 0.5f,
-			                                                  hand.PalmPosition.ToUnityScaled().y - 3, 
-			                                                  hand.PalmPosition.ToUnityScaled().z + 1);
+
+			localx = hand.PalmPosition.ToUnityScaled().x + xOffset;
+			localy = hand.PalmPosition.ToUnityScaled().y + yOffset;
+			localz = hand.PalmPosition.ToUnityScaled().z + zOffset;
+
+			if (localy > -0.35f) {
+				localy = -0.35f;
+			}
+			if (localz > 0.8f) {
+				localz = 0.8f;
+			}
+
+			gameObject.transform.localPosition = new Vector3 (localx, localy, localz);
+
+
 			handx = hand.PalmPosition.ToUnityScaled().x;
 			handy = hand.PalmPosition.ToUnityScaled().y;
 			handz = hand.PalmPosition.ToUnityScaled().z;
