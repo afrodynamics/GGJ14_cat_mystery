@@ -15,6 +15,7 @@ public class PawBehavior : MonoBehaviour {
 	private const float yOffset = -3.0f;
 	private const float zOffset = 1.0f;
 
+	GameObject pawEnd;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,7 @@ public class PawBehavior : MonoBehaviour {
 		localz = gameObject.transform.localPosition.z;
 
 
-
+		pawEnd = GameObject.Find("PawEnd");
 		showPaw = false;
 	}
 	
@@ -59,12 +60,19 @@ public class PawBehavior : MonoBehaviour {
 			localy = hand.PalmPosition.ToUnityScaled().y + yOffset;
 			localz = hand.PalmPosition.ToUnityScaled().z + zOffset;
 
-			if (localy > -0.35f) {
-				localy = -0.35f;
+			if (localy > 0.6f) {
+				localy = 0.6f;
 			}
-			if (localz > 0.8f) {
-				localz = 0.8f;
+			if (localy < -0.3f) {
+				localy = -0.3f;
 			}
+			if (localz > 1.2f) {
+				localz = 1.2f;
+			}
+
+			//if (localx < 0.5f) {
+			//	localx = 0.5f;
+			//}
 
 			gameObject.transform.localPosition = new Vector3 (localx, localy, localz);
 
@@ -81,9 +89,9 @@ public class PawBehavior : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)	{
 		//if (collision.gameObject.name == "Ball") {
-			collision.gameObject.rigidbody.velocity += new Vector3(collision.gameObject.rigidbody.velocity.x * 50,
-			                                                       collision.gameObject.rigidbody.velocity.y * 50,
-			                                                       collision.gameObject.rigidbody.velocity.z * 50);
+			collision.gameObject.rigidbody.velocity += new Vector3(collision.gameObject.rigidbody.velocity.x * 10,
+			                                                       collision.gameObject.rigidbody.velocity.y * 10,
+			                                                       collision.gameObject.rigidbody.velocity.z * 10);
 		//}
 	}
 
@@ -100,6 +108,9 @@ public class PawBehavior : MonoBehaviour {
 			gameObject.renderer.enabled = true;
 			rigidbody.renderer.enabled = true;
 			rigidbody.collider.enabled = true;
+			pawEnd.renderer.enabled = true;
+			pawEnd.collider.enabled = true;
+
 			// Rotate around the z-axis to turn camera view
 
 			/*rigidbody.velocity += new Vector3(pawSpeed * rigidbody.transform.forward.x,
@@ -112,6 +123,8 @@ public class PawBehavior : MonoBehaviour {
 			gameObject.renderer.enabled = false;
 			rigidbody.renderer.enabled = false;
 			rigidbody.collider.enabled = false;
+			pawEnd.renderer.enabled = false;
+			pawEnd.collider.enabled = false;
 		}
 
 	}
