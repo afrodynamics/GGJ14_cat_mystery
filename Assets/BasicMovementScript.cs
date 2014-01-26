@@ -146,6 +146,7 @@ public class BasicMovementScript : MonoBehaviour {
 					//Perform jump action
 					if ( jumpDownDistance >= jumpMotionDistance ) {
 						performingJumpMotion = false;
+						time = 0;
 						Jump();
 					}
 					else {
