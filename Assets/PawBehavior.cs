@@ -8,6 +8,9 @@ public class PawBehavior : MonoBehaviour {
 	public float pawSpeed = 100;
 	private bool showPaw;
 
+	public float localx, localy, localz;
+	public float handx, handy, handz;
+
 	// Use this for initialization
 	void Start () {
 		m_leapController = new Controller();
@@ -15,6 +18,12 @@ public class PawBehavior : MonoBehaviour {
 		gameObject.renderer.material.color = Color.black;
 		gameObject.renderer.enabled = false;
 		rigidbody.collider.enabled = false;
+
+		localx = gameObject.transform.localPosition.x;
+		localy = gameObject.transform.localPosition.y;
+		localz = gameObject.transform.localPosition.z;
+
+
 
 		showPaw = false;
 	}
@@ -37,9 +46,15 @@ public class PawBehavior : MonoBehaviour {
 			noHand = true;
 		}
 
-		if (!noHand && hand.Fingers.Count >= 2)
+		if (!noHand && hand.Fingers.Count <= 2 && hand.Fingers.Count > 0)
 		{
 			showPaw = true;
+			gameObject.transform.localPosition = new Vector3 (hand.PalmPosition.ToUnityScaled().x + 0.5f,
+			                                                  hand.PalmPosition.ToUnityScaled().y - 3, 
+			                                                  hand.PalmPosition.ToUnityScaled().z + 1);
+			handx = hand.PalmPosition.ToUnityScaled().x;
+			handy = hand.PalmPosition.ToUnityScaled().y;
+			handz = hand.PalmPosition.ToUnityScaled().z;
 		}
 		else {
 			showPaw = false;
