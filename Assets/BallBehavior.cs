@@ -4,11 +4,15 @@ using System.Collections;
 public class BallBehavior : MonoBehaviour {
 	private Vector3 pawDirection;
 
+	private bool triggerflag = false;
+	public GameManager gm;
+
 	public float bounceForce = 100;
 
 	// Use this for initialization
 	void Start () {
-	
+		gameObject.renderer.material.color = Color.black;
+		Debug.Log ("Start of level, triggerleft: " + gm.triggersLeft);
 	}
 	
 	// Update is called once per frame
@@ -39,6 +43,17 @@ public class BallBehavior : MonoBehaviour {
 		{
 			rigidbody.AddForce(bounceForce,0,0);
 		}
+
+		if (collision.gameObject.name == "Collision Cube" )
+		{
+			if (triggerflag == false ){
+				gm.triggersLeft--;
+				triggerflag = true;
+				gameObject.renderer.material.color = Color.red;
+			}
+			Debug.Log ( "triggersLeft" + gm.triggersLeft );
+		}
+
 		/*
 		if(collision.gameObject.name == "Paw")
 		{
