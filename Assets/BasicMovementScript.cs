@@ -7,11 +7,12 @@ public class BasicMovementScript : MonoBehaviour {
 	Controller m_leapController;
 
 	public float moveSpeed;
-	public float jumpForce;
+	public float jumpForce = 14;
 	public float maxSpeed;
 
 	private bool grounded = true;
 	private bool falling = false;
+	private float time;
 
 	private float rotation;		// Tracks if we should be turning left, right, or not turning.
 	private float movement; 	// Tracks if we should be moving forward, backwards, or not moving.
@@ -28,9 +29,9 @@ public class BasicMovementScript : MonoBehaviour {
 	void Start () {
 		m_leapController = new Controller();
 
-		moveSpeed = 4.0f;
-		jumpForce = 10;
-		maxSpeed = 4.0f;
+		moveSpeed = 5f;
+		jumpForce = 14;
+		maxSpeed = 5f;
 
 		rotation = 0;
 		movement = 0;
@@ -40,7 +41,7 @@ public class BasicMovementScript : MonoBehaviour {
 		performingJumpMotion = false;
 		jumpUpDistance = 0.0f;
 		jumpDownDistance = 0.0f;
-		jumpMotionDistance = 1.0f; // This value will probably need tweaking.
+		jumpMotionDistance = 14f; // This value will probably need tweaking.
 
 	}
 
@@ -156,6 +157,7 @@ public class BasicMovementScript : MonoBehaviour {
 
 		LeapControls();
 
+		time += Time.deltaTime;
 		// Keyboard controls.
 		if (grounded) {
 				if (Input.GetAxis ("Horizontal") != 0.0) {
@@ -176,7 +178,9 @@ public class BasicMovementScript : MonoBehaviour {
 		}				
 
 		if (Input.GetKey (KeyCode.Space) && grounded) {
+			time = 0;
 			Jump();
+
 		}
 
 		if (rigidbody.velocity.y < 0) {
@@ -184,6 +188,12 @@ public class BasicMovementScript : MonoBehaviour {
 		}
 
 		if(falling == true && rigidbody.velocity.y == 0)
+		{
+			grounded = true;
+			falling = false;
+		}
+
+		if (time >= 1) 
 		{
 			grounded = true;
 			falling = false;
