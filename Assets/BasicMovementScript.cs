@@ -25,6 +25,15 @@ public class BasicMovementScript : MonoBehaviour {
 	private float jumpDownDistance; // Tracks how far you have made downwards movements the jump gesture.
 	private float jumpMotionDistance; // How far the user should have to move their hands to make the jump gesture.
 
+	private bool pauseInput; // We're temporarily taking control, so don't let the user do anything till we're done.
+	private bool turnAround; // Force the user to turn around.
+	private Vector3 startPosition; // Direction the camera is facing when you hit a wall.
+	private Vector3 endPosition; // Direction the camera should be facing when we finish turning.
+	private float startTime; // Time when we start the turn around process.
+	private bool doneTurning; // Track if we've finished turning around or not.
+
+	public float x, y, z;
+
 	// Use this for initialization
 	void Start () {
 		m_leapController = new Controller();
@@ -43,6 +52,12 @@ public class BasicMovementScript : MonoBehaviour {
 		jumpDownDistance = 0.0f;
 		jumpMotionDistance = 14f; // This value will probably need tweaking.
 
+		pauseInput = false;
+		turnAround = false;
+
+		x = 0.0f;
+		y = 0.0f;
+		z = 0.0f;
 	}
 
 	// Handles all Leap controls.
@@ -61,6 +76,7 @@ public class BasicMovementScript : MonoBehaviour {
 					rightHand = frame.Hands [0];
 			}
 
+
 			// Basic movement
 			if (grounded) {
 				// We need the average value of the two hands' positions.
@@ -74,18 +90,21 @@ public class BasicMovementScript : MonoBehaviour {
 					rigidbody.transform.Rotate (new Vector3 (0, moveSpeed * rotation * rotationMultiplier, 0)); // lies
 					
 				}
-				
-				if (movement > -2.0  && movement < 0.0) {
-					rigidbody.velocity = new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
-					                                  moveSpeed * rigidbody.transform.forward.y,
-					                                  moveSpeed * rigidbody.transform.forward.z);
-				} 
-				else if (movement < -3.0) {
-					rigidbody.velocity = new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
-					                                  -moveSpeed * rigidbody.transform.forward.y,
-					                                  -moveSpeed * rigidbody.transform.forward.z);
+
+				if (rightHand.PalmPosition.ToUnityScaled().z < 0) {
+
+					if (movement > -2.0  && movement < 0.0) {
+						rigidbody.velocity = new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
+						                                  moveSpeed * rigidbody.transform.forward.y,
+						                                  moveSpeed * rigidbody.transform.forward.z);
+					} 
+					else if (movement < -3.0) {
+						rigidbody.velocity = new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
+						                                  -moveSpeed * rigidbody.transform.forward.y,
+						                                  -moveSpeed * rigidbody.transform.forward.z);
+					}
 				}
-				/*
+					/*
 				if (axes == RotationAxes.MouseXAndY)
 				{
 					float rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * sensitivityX;
@@ -150,57 +169,83 @@ public class BasicMovementScript : MonoBehaviour {
 	}
 
 
+	void OnCollisionEnter(Collision collision)	{
+		if (collision.gameObject.name == "Wall1" || collision.gameObject.name == "Wall2" || collision.gameObject.name == "Wall3" || collision.gameObject.name == "Wall4") {
+
+			startPosition = rigidbody.transform.forward;
+			endPosition = collision.gameObject.transform.forward;
+			startTime = Time.time;
+
+			//rigidbody.transform.forward = collision.gameObject.transform.forward;
+			pauseInput = true;
+			turnAround = true;
+		}
+	}
 
 
 	// FixedUpdate called once per physics engine update
 	void FixedUpdate() {
+		if (!pauseInput) {
+			LeapControls ();
 
-		LeapControls();
 
-		time += Time.deltaTime;
-		// Keyboard controls.
-		if (grounded) {
+			time += Time.deltaTime;
+			// Keyboard controls.
+			if (grounded) {
 				if (Input.GetAxis ("Horizontal") != 0.0) {
-						// Rotate around the z-axis to turn camera view
-						rigidbody.transform.Rotate (new Vector3 (0, moveSpeed * Input.GetAxis ("Horizontal"), 0)); // lies
+					// Rotate around the z-axis to turn camera view
+					rigidbody.transform.Rotate (new Vector3 (0, moveSpeed * Input.GetAxis ("Horizontal"), 0)); // lies
 
 				}
 
 				if (Input.GetAxis ("Vertical") > 0.0) {
-						rigidbody.velocity += new Vector3 (moveSpeed * rigidbody.transform.forward.x, 
-	                                  0,
-	                                  moveSpeed * rigidbody.transform.forward.z);
+					rigidbody.velocity += new Vector3 (moveSpeed * rigidbody.transform.forward.x, 0,
+                  	moveSpeed * rigidbody.transform.forward.z);
 				} else if (Input.GetAxis ("Vertical") < 0.0) {
-						rigidbody.velocity += new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 
-	                                  0,
-	                                  -moveSpeed * rigidbody.transform.forward.z);
+					rigidbody.velocity += new Vector3 (-moveSpeed * rigidbody.transform.forward.x, 0,
+                  	-moveSpeed * rigidbody.transform.forward.z);
 				}
-		}				
+			}				
 
-		if (Input.GetKey (KeyCode.Space) && grounded) {
-			time = 0;
-			Jump();
+			if (Input.GetKey (KeyCode.Space) && grounded) {
+				time = 0;
+				Jump();
 
+			}
+
+			if (rigidbody.velocity.y < 0) {
+					falling = true;
+			}
+
+			if (falling == true && rigidbody.velocity.y == 0) {
+					grounded = true;
+					falling = false;
+			}
+
+			if (time >= 1) 
+			{
+				grounded = true;
+				falling = false;
+			}
+
+			// Not a problem now, but may be soon. Prevents us from infinitely accelerating past moveSpeed
+			rigidbody.velocity = Vector3.ClampMagnitude( rigidbody.velocity, maxSpeed );
+		} 
+		else {
+			if (turnAround) {
+				turnAround = false;
+				doneTurning = false;
+			}
+			if (!doneTurning) {
+				float distCovered = (Time.time - startTime);
+				rigidbody.transform.forward = Vector3.Lerp(startPosition, endPosition, distCovered);
+				if (Time.time - startTime > 1)
+				{
+					doneTurning = true;
+					pauseInput = false;
+				}
+		    }
 		}
-
-		if (rigidbody.velocity.y < 0) {
-			falling = true;
-		}
-
-		if(falling == true && rigidbody.velocity.y == 0)
-		{
-			grounded = true;
-			falling = false;
-		}
-
-		if (time >= 1) 
-		{
-			grounded = true;
-			falling = false;
-		}
-
-		// Not a problem now, but may be soon. Prevents us from infinitely accelerating past moveSpeed
-		rigidbody.velocity = Vector3.ClampMagnitude( rigidbody.velocity, maxSpeed );
 
 	}
 
