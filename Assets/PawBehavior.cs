@@ -11,7 +11,11 @@ public class PawBehavior : MonoBehaviour {
 	public float localx, localy, localz;
 	public float handx, handy, handz;
 
+	private const float xOffset = 0.5f;
+	private const float yOffset = -3.0f;
+	private const float zOffset = 1.0f;
 
+	GameObject pawEnd;
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +30,7 @@ public class PawBehavior : MonoBehaviour {
 		localz = gameObject.transform.localPosition.z;
 
 
-
+		pawEnd = GameObject.Find("PawEnd");
 		showPaw = false;
 	}
 	
@@ -51,9 +55,28 @@ public class PawBehavior : MonoBehaviour {
 		if (!noHand && hand.Fingers.Count <= 2 && hand.Fingers.Count > 0)
 		{
 			showPaw = true;
-			gameObject.transform.localPosition = new Vector3 (hand.PalmPosition.ToUnityScaled().x + 0.5f,
-			                                                  hand.PalmPosition.ToUnityScaled().y - 3, 
-			                                                  hand.PalmPosition.ToUnityScaled().z + 1);
+
+			localx = hand.PalmPosition.ToUnityScaled().x + xOffset;
+			localy = hand.PalmPosition.ToUnityScaled().y + yOffset;
+			localz = hand.PalmPosition.ToUnityScaled().z + zOffset;
+
+			if (localy > 0.6f) {
+				localy = 0.6f;
+			}
+			if (localy < -0.3f) {
+				localy = -0.3f;
+			}
+			if (localz > 0.6f) {
+				localz = 0.6f;
+			}
+
+			if (localx < 0.5f) {
+				localx = 0.5f;
+			}
+
+			gameObject.transform.localPosition = new Vector3 (localx, localy, localz);
+
+
 			handx = hand.PalmPosition.ToUnityScaled().x;
 			handy = hand.PalmPosition.ToUnityScaled().y;
 			handz = hand.PalmPosition.ToUnityScaled().z;
@@ -66,9 +89,9 @@ public class PawBehavior : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)	{
 		//if (collision.gameObject.name == "Ball") {
-			collision.gameObject.rigidbody.velocity += new Vector3(collision.gameObject.rigidbody.velocity.x * 50,
-			                                                       collision.gameObject.rigidbody.velocity.y * 50,
-			                                                       collision.gameObject.rigidbody.velocity.z * 50);
+			collision.gameObject.rigidbody.velocity += new Vector3(collision.gameObject.rigidbody.velocity.x * 10,
+			                                                       collision.gameObject.rigidbody.velocity.y * 10,
+			                                                       collision.gameObject.rigidbody.velocity.z * 10);
 		//}
 	}
 
@@ -85,6 +108,9 @@ public class PawBehavior : MonoBehaviour {
 			gameObject.renderer.enabled = true;
 			rigidbody.renderer.enabled = true;
 			rigidbody.collider.enabled = true;
+			pawEnd.renderer.enabled = true;
+			pawEnd.collider.enabled = true;
+
 			// Rotate around the z-axis to turn camera view
 
 			/*rigidbody.velocity += new Vector3(pawSpeed * rigidbody.transform.forward.x,
@@ -97,6 +123,8 @@ public class PawBehavior : MonoBehaviour {
 			gameObject.renderer.enabled = false;
 			rigidbody.renderer.enabled = false;
 			rigidbody.collider.enabled = false;
+			pawEnd.renderer.enabled = false;
+			pawEnd.collider.enabled = false;
 		}
 
 	}

@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TitleCardScript.cs">
     <Files>
       <File FileName="Assets\TitleCardScript.cs" Line="17" Column="1" />
@@ -9,12 +10,13 @@
       <File FileName="Assets\BedScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Autofade.cs" Line="1" Column="1" />
       <File FileName="Assets\TitleCardScript.cs" Line="6" Column="2" />
+
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True">
-            <Node name="TitleCardScript.cs" selected="True" />
+          <Node name="Assembly-CSharp-firstpass" expanded="True">
+            <Node name="inside.shader" selected="True" />
           </Node>
         </State>
       </Pad>
