@@ -172,7 +172,7 @@ public class BasicMovementScript : MonoBehaviour {
 
 
 	void OnCollisionEnter(Collision collision)	{
-		if (collision.gameObject.name == "Wall1" || collision.gameObject.name == "Wall2" || collision.gameObject.name == "Wall3" || collision.gameObject.name == "Wall4") {
+		if ( collision.gameObject.tag == "Wall" ) {
 
 			startPosition = rigidbody.transform.forward;
 			endPosition = collision.gameObject.transform.forward;

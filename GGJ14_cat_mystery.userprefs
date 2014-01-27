@@ -1,22 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TitleCardScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\PawBehavior.cs">
     <Files>
-      <File FileName="Assets\TitleCardScript.cs" Line="17" Column="1" />
-      <File FileName="Assets\GameManager.cs" Line="17" Column="24" />
-      <File FileName="Assets\SpawnCube.cs" Line="1" Column="1" />
+      <File FileName="Assets\BasicMovementScript.cs" Line="96" Column="7" />
+      <File FileName="Assets\PaddleControl.cs" Line="21" Column="7" />
+      <File FileName="Assets\PawBehavior.cs" Line="82" Column="90" />
       <File FileName="Assets\BallBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\BedScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Autofade.cs" Line="1" Column="1" />
-      <File FileName="Assets\TitleCardScript.cs" Line="6" Column="2" />
-
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Assembly-CSharp-firstpass" expanded="True">
-            <Node name="inside.shader" selected="True" />
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="PawBehavior.cs" selected="True" />
           </Node>
         </State>
       </Pad>
