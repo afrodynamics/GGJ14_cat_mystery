@@ -92,15 +92,17 @@ public class BasicMovementScript : MonoBehaviour {
 
 				//if (hand.PalmPosition.ToUnityScaled().z < 0) {
 
-					if ( movement > 0.0f ) {
-						rigidbody.velocity = new Vector3 (leapMoveSpeed * movement * rigidbody.transform.forward.x, 
-						                                  leapMoveSpeed * movement * rigidbody.transform.forward.y,
-						                                  leapMoveSpeed * movement * rigidbody.transform.forward.z);
+					if ( movement > -1.0f ) {
+						float tempSpeed = (movement + 1.0f) * leapMoveSpeed;
+						rigidbody.velocity = new Vector3 (tempSpeed * rigidbody.transform.forward.x, 
+						                                  tempSpeed * movement * rigidbody.transform.forward.y,
+						                                  tempSpeed * movement * rigidbody.transform.forward.z);
 					} 
 					else if (movement < -2.0f) {
-						rigidbody.velocity = new Vector3 (movement * leapMoveSpeed * rigidbody.transform.forward.x, 
-						                                  movement * leapMoveSpeed * rigidbody.transform.forward.y,
-						                                  movement * leapMoveSpeed * rigidbody.transform.forward.z);
+						float tempSpeed = (movement + 1.0f) * leapMoveSpeed;
+						rigidbody.velocity = new Vector3 (tempSpeed * rigidbody.transform.forward.x, 
+						                                  tempSpeed * rigidbody.transform.forward.y,
+						                                  tempSpeed * rigidbody.transform.forward.z);
 					}
 				//}
 					/*

@@ -63,17 +63,37 @@ public class PawBehavior : MonoBehaviour {
 			if (localy > 0.6f) {
 				localy = 0.6f;
 			}
-			if (localy < -0.3f) {
-				localy = -0.3f;
+			if (localy < -0.1f) {
+				localy = -0.1f;
 			}
 			if (localz > 0.6f) {
 				localz = 0.6f;
 			}
 
-			if (localx < 0.5f) {
-				localx = 0.5f;
+			if (localx < 0.4f) {
+				localx = 0.4f;
 			}
 
+
+			// I'm trying to get it so that when you move your hand forward, the paw moves forward reletive to itself.
+			// This may or may not go horribly wrong.
+			// It should work because of math.
+		/* Yeah, this didn't work.  Maybe it can be fixed someday, but ignore it for now.
+		 * It stops rotating relative to the camera, so when you turn it doesn't turn with you.
+			Vector3 newPosition = new Vector3( gameObject.transform.forward.x * localz,
+			                                 gameObject.transform.forward.y * localz,
+			                                 gameObject.transform.forward.z * localz );
+
+			newPosition += new Vector3( gameObject.transform.right.x * localx,
+			                          gameObject.transform.right.y * localx,
+			                          gameObject.transform.right.z * localx );
+
+			newPosition += new Vector3( gameObject.transform.up.x * localy, 
+			                          gameObject.transform.up.y * localy, 
+			                          gameObject.transform.up.z * localy );
+			                         
+			gameObject.transform.localPosition = newPosition;
+		*/
 			gameObject.transform.localPosition = new Vector3 (localx, localy, localz);
 
 
