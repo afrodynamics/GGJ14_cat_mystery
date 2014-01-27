@@ -33,18 +33,6 @@ public class BallBehavior : MonoBehaviour {
 			                   bounceForce * collision.gameObject.transform.forward.y, 
 			                   bounceForce * collision.gameObject.transform.forward.z );
 		}
-		if (collision.gameObject.name == "Wall2")
-		{
-			rigidbody.AddForce(-bounceForce,0,0);
-		}
-		if (collision.gameObject.name == "Wall3")
-		{
-			rigidbody.AddForce(0,0, bounceForce);
-		}
-		if (collision.gameObject.name == "Wall4") 
-		{
-			rigidbody.AddForce(bounceForce,0,0);
-		}
 
 		if (collision.gameObject.name == "Collision Cube" )
 		{
