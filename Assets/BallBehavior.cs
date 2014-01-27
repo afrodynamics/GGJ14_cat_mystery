@@ -11,7 +11,7 @@ public class BallBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.material.color = Color.black;
+		//gameObject.renderer.material.color = Color.black;
 		Debug.Log ("Start of level, triggerleft: " + gm.triggersLeft);
 	}
 	

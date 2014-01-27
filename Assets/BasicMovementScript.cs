@@ -7,7 +7,7 @@ public class BasicMovementScript : MonoBehaviour {
 	Controller m_leapController;
 
 	public float moveSpeed;
-	public float jumpForce = 14;
+	public float jumpForce;
 	public float maxSpeed;
 
 	private float leapMoveSpeed; // The multiplier for moving with the leap controls.
@@ -41,7 +41,7 @@ public class BasicMovementScript : MonoBehaviour {
 		m_leapController = new Controller();
 
 		moveSpeed = 5f;
-		jumpForce = 14;
+		jumpForce = 1000;
 		maxSpeed = 5f;
 
 		rotation = 0;
@@ -262,7 +262,8 @@ public class BasicMovementScript : MonoBehaviour {
 	void Jump(){
 		grounded = false;
 
-		rigidbody.velocity += new Vector3 (0, jumpForce, 0);
+		//rigidbody.velocity += new Vector3 (0, jumpForce, 0);
+		rigidbody.AddForce (0, jumpForce, 0);
 
 
 

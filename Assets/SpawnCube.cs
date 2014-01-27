@@ -6,8 +6,8 @@ public class SpawnCube : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		gameObject.renderer.enabled = false;
-		gameObject.collider.enabled = false;
+		//gameObject.renderer.enabled = false;
+		//gameObject.collider.enabled = false;
 
 	}
 	
