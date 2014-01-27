@@ -182,6 +182,14 @@ public class BasicMovementScript : MonoBehaviour {
 			pauseInput = true;
 			turnAround = true;
 		}
+		if (collision.gameObject.jag == "AlmostWall") {
+			startPosition = rigidbody.transform.forward;
+			endPosition = collision.gameObject.transform.right;
+			startTime = Time.time;
+
+			pauseInput = true;
+			turnAround = true;
+		}
 	}
 
 
