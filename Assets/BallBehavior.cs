@@ -27,9 +27,11 @@ public class BallBehavior : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision)
 	{
-		if (collision.gameObject.name == "Wall1")
+		if (collision.gameObject.tag == "Wall")
 		{
-			rigidbody.AddForce(0,0,-bounceForce);
+			rigidbody.AddForce(bounceForce * collision.gameObject.transform.forward.x, 
+			                   bounceForce * collision.gameObject.transform.forward.y, 
+			                   bounceForce * collision.gameObject.transform.forward.z );
 		}
 		if (collision.gameObject.name == "Wall2")
 		{
